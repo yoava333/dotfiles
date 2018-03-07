@@ -1,0 +1,24 @@
+- clean: ['~']
+
+- defaults:
+    link:
+      relink: true
+
+- shell:
+  - [sleep 0, Installing dotfiles]
+  -
+    command: [git pull, Updating dotfiles]
+    stdout: true
+    stderr: true
+
+- link:
+    ~/.vimrc: vim/vimrc
+    ~/.vim: vim/
+    ~/.tmux.conf: tmux/tmux.conf
+
+- shell:
+  - 
+    command: [vim +PlugInstall +qall now, Installing Vim plugins]
+    stdin: true
+    stdout: true
+    stderr: true
