@@ -9,9 +9,16 @@ Plug 'tpope/vim-repeat'
 Plug 'fatih/vim-go'
 Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdtree'
-Plug 'xoria256.vim'
+Plug 'chriskempson/base16-vim'
 Plug 'rust-lang/rust.vim'
-Plug 'Valloric/YouCompleteMe'
+if has('nvim') 
+    Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': ':UpdateRemotePlugins' }
+    Plug 'roxma/nvim-completion-manager'
+    Plug 'roxma/nvim-cm-racer'
+    Plug 'Shougo/echodoc.vim'
+else
+    Plug 'Valloric/YouCompleteMe'
+end
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mileszs/ack.vim'
 
@@ -19,20 +26,49 @@ call plug#end()
 
 filetype plugin indent on
 
+set autoindent
+set timeoutlen=300 " http://stackoverflow.com/questions/2158516/delay-before-o-opens-a-new-line
+set nojoinspaces
+
+" splits
+set splitright
+set splitbelow
+
+" Search results centered please
+nnoremap <silent> n nzz
+nnoremap <silent> N Nzz
+nnoremap <silent> * *zz
+nnoremap <silent> # #zz
+nnoremap <silent> g* g*zz
+
+" dark background
 set background=dark
+
+" relative line numbers
 set relativenumber
 
+" white space settings
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
 
+" highlight search
 set hlsearch
+
+" 24bit colors
+set termguicolors
 
 " git grep command
 nnoremap <C-F> :Ggr <cword><CR>
 command -nargs=+ Ggr execute 'silent Ggrep!' <q-args> | cw | redraw!
 
+set colorcolumn=80
+
+" Ctrl+j as Esc
+vnoremap <C-j> <Esc>
+inoremap <C-j> <Esc>
+nnoremap <C-j> <Esc>
 
 " search work under the cursor using 
 let g:ackprg = 'ag --vimgrep'
@@ -40,4 +76,21 @@ nmap <C-k>    mo:Ack! "\b<cword>\b" <CR>
 
 set visualbell
 
-silent! colorscheme xoria256
+" color scheme
+silent! colorscheme base16-tomorrow-night
+
+" language server protocol
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['rustup', 'run', 'stable', 'rls'],
+    \ }
+let g:LanguageClient_autoStart = 1
+
+nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
+
+" language specific
+let g:rustfmt_autosave = 1
+let g:rustfmt_fail_silently = 1
+
+set spell
