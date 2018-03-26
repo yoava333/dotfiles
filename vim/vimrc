@@ -12,7 +12,9 @@ Plug 'scrooloose/nerdtree'
 Plug 'chriskempson/base16-vim'
 Plug 'rust-lang/rust.vim'
 if has('nvim') 
-    Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': ':UpdateRemotePlugins' }
+    Plug 'autozimu/LanguageClient-neovim', {
+                \ 'branch': 'next',
+                \ 'do': 'bash install.sh' }
     Plug 'roxma/nvim-completion-manager'
     Plug 'roxma/nvim-cm-racer'
     Plug 'Shougo/echodoc.vim'
@@ -82,8 +84,10 @@ silent! colorscheme base16-tomorrow-night
 " language server protocol
 let g:LanguageClient_serverCommands = {
     \ 'rust': ['rustup', 'run', 'stable', 'rls'],
+    \ 'python': ['pyls'],
     \ }
 let g:LanguageClient_autoStart = 1
+let g:loaded_fzf = 0
 
 nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>

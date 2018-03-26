@@ -16,6 +16,9 @@
 
 - link:
     ~/.vimrc: vim/vimrc
+    ~/.config/nvim/init.vim:
+        create: true
+        path: vim/vimrc
     ~/.vim: vim/
     ~/.tmux.conf: tmux/tmux.conf
 
