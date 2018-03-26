@@ -1,0 +1,5 @@
+[user]
+	email = yoava333@gmail.com
+	name = Yoav Alon
+[alias]
+	lol = log --oneline --graph --decorate

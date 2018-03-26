@@ -21,6 +21,7 @@
         path: vim/vimrc
     ~/.vim: vim/
     ~/.tmux.conf: tmux/tmux.conf
+    ~/.gitconfig: gitconfig
 
 - shell:
   - 
