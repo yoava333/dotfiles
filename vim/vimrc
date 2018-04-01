@@ -56,6 +56,17 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 
+set textwidth=80
+
+" Wrapping options
+set formatoptions=tc " wrap text and comments using textwidth
+set formatoptions+=r " continue comments when pressing ENTER in I mode
+set formatoptions+=q " enable formatting of comments with gq
+set formatoptions+=n " detect lists for formatting
+set formatoptions+=b " auto-wrap in insert mode, and do not wrap old long lines
+
+set guifont=inconsolata:h12
+
 " highlight search
 set hlsearch
 
@@ -97,5 +108,6 @@ nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
 " language specific
 let g:rustfmt_autosave = 1
 let g:rustfmt_fail_silently = 1
+au Filetype rust set colorcolumn=100
 
 set spell
