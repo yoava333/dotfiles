@@ -23,6 +23,7 @@ else
 end
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mileszs/ack.vim'
+Plug 'stephpy/vim-yaml'
 
 call plug#end()
 
