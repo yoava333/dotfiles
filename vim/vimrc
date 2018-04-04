@@ -110,4 +110,17 @@ let g:rustfmt_autosave = 1
 let g:rustfmt_fail_silently = 1
 au Filetype rust set colorcolumn=100
 
+" enforce purity
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
+
+" Left and right can switch buffers
+nnoremap <left> :bp<CR>
+nnoremap <right> :bn<CR>
+
+
 set spell
