@@ -106,9 +106,13 @@ nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
 
 " language specific
+" rust
 let g:rustfmt_autosave = 1
 let g:rustfmt_fail_silently = 1
 au Filetype rust set colorcolumn=100
+
+" vim-go config
+let g:go_fmt_command = "goimports"
 
 " enforce purity
 nnoremap <up> <nop>
@@ -121,6 +125,5 @@ inoremap <right> <nop>
 " Left and right can switch buffers
 nnoremap <left> :bp<CR>
 nnoremap <right> :bn<CR>
-
 
 set spell
