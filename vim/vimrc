@@ -127,3 +127,5 @@ nnoremap <left> :bp<CR>
 nnoremap <right> :bn<CR>
 
 set spell
+
+let g:airline_powerline_fonts = 1
