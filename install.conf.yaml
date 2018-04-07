@@ -15,6 +15,9 @@
     stderr: true
 
 - link:
+    ~/.vim/autoload/plug.vim: 
+        create: true
+        path: vim/autoload/plug.vim
     ~/.vimrc: vim/vimrc
     ~/.config/nvim/init.vim:
         create: true
