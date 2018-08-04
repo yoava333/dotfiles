@@ -71,7 +71,11 @@ set guifont=inconsolata:h12
 set hlsearch
 
 " 24bit colors
-set termguicolors
+if has('termguicolors')
+  set termguicolors
+else
+  let base16colorspace=256  " Access colors present in 256 colorspace
+end
 
 " git grep command
 nnoremap <C-F> :Ggr <cword><CR>
@@ -117,10 +121,6 @@ let g:go_fmt_command = "goimports"
 " enforce purity
 nnoremap <up> <nop>
 nnoremap <down> <nop>
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
 
 " Left and right can switch buffers
 nnoremap <left> :bp<CR>

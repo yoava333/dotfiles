@@ -8,7 +8,8 @@
   - [sleep 0, Installing dotfiles]
   - ["sudo add-apt-repository -y ppa:neovim-ppa/stable", Installing dependencies]
   - ["sudo apt update", Update dependencies]
-  - ["sudo apt install -y neovim git curl python-pip python3-pip", Installing dependencies]
+  - ["sudo apt install -y neovim git curl python-pip python3-pip cmake", Installing dependencies]
+  - ["python3 -m pip install neovim --user", Install python packages]
   -
     command: [git pull, Updating dotfiles]
     stdout: true
@@ -16,6 +17,9 @@
 
 - link:
     ~/.vim/autoload/plug.vim: 
+        create: true
+        path: vim/autoload/plug.vim
+    ~/.local/share/nvim/site/autoload/plug.vim: 
         create: true
         path: vim/autoload/plug.vim
     ~/.vimrc: vim/vimrc
