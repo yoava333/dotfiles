@@ -19,7 +19,7 @@ if has('nvim')
     Plug 'roxma/nvim-cm-racer'
     Plug 'Shougo/echodoc.vim'
 else
-    Plug 'Valloric/YouCompleteMe'
+    Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
 end
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mileszs/ack.vim'
@@ -73,8 +73,10 @@ set hlsearch
 " 24bit colors
 if has('termguicolors')
   set termguicolors
+  silent! colorscheme base16-tomorrow-night
 else
   let base16colorspace=256  " Access colors present in 256 colorspace
+  colorscheme desert
 end
 
 " git grep command
@@ -95,7 +97,7 @@ nmap <C-k>    mo:Ack! "\b<cword>\b" <CR>
 set visualbell
 
 " color scheme
-silent! colorscheme base16-tomorrow-night
+" silent! colorscheme base16-tomorrow-night
 
 " language server protocol
 let g:LanguageClient_serverCommands = {
