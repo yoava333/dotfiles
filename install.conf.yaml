@@ -8,7 +8,7 @@
   - [sleep 0, Installing dotfiles]
   - ["sudo add-apt-repository -y ppa:neovim-ppa/stable", Installing dependencies]
   - ["sudo apt update", Update dependencies]
-  - ["sudo apt install -y neovim git curl python-pip python3-pip cmake", Installing dependencies]
+  - ["sudo apt install -y neovim git curl python-pip python3-pip cmake silversearcher-ag", Installing dependencies]
   - ["python3 -m pip install neovim --user", Install python packages]
   -
     command: [git pull, Updating dotfiles]
@@ -33,6 +33,7 @@
 - shell:
   - 
     command: [vim +PlugInstall +qall now, Installing Vim plugins]
+    command: [nvim +PlugInstall +qall now, Installing Vim plugins]
     stdin: true
     stdout: true
     stderr: true
