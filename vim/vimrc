@@ -1,3 +1,6 @@
+" map leader to space
+let mapleader = "\<Space>"
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'junegunn/vim-easy-align'
@@ -21,7 +24,10 @@ if has('nvim')
 else
     Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
 end
-Plug 'ctrlpvim/ctrlp.vim'
+
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+
 Plug 'mileszs/ack.vim'
 Plug 'stephpy/vim-yaml'
 
@@ -45,6 +51,11 @@ nnoremap <silent> N Nzz
 nnoremap <silent> * *zz
 nnoremap <silent> # #zz
 nnoremap <silent> g* g*zz
+
+" fzf config
+let g:fzf_layout = { 'down': '~20%' }
+map <C-p> :Files<CR>
+nmap <leader>; :Buffers<CR>
 
 " dark background
 set background=dark
@@ -107,7 +118,6 @@ let g:LanguageClient_serverCommands = {
     \ 'python': ['pyls'],
     \ }
 let g:LanguageClient_autoStart = 1
-let g:loaded_fzf = 0
 
 nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
