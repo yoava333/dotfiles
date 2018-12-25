@@ -29,6 +29,8 @@ call plug#end()
 
 filetype plugin indent on
 
+set encoding=utf-8
+
 set autoindent
 set timeoutlen=300 " http://stackoverflow.com/questions/2158516/delay-before-o-opens-a-new-line
 set nojoinspaces
