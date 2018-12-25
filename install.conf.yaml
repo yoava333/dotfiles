@@ -8,12 +8,17 @@
   - [sleep 0, Installing dotfiles]
   - ["sudo add-apt-repository -y ppa:neovim-ppa/stable", Installing dependencies]
   - ["sudo apt update", Update dependencies]
-  - ["sudo apt install -y neovim git curl python-pip python3-pip cmake silversearcher-ag", Installing dependencies]
+  - ["sudo apt install -y zsh neovim git curl python-pip python3-pip cmake silversearcher-ag", Installing dependencies]
   - ["python3 -m pip install neovim --user", Install python packages]
   -
     command: [git pull, Updating dotfiles]
     stdout: true
     stderr: true
+
+# install zsh
+- shell:
+  - 
+    command: [zsh/install_prezto.sh, Install zsh]
 
 - link:
     ~/.vim/autoload/plug.vim: 
@@ -29,6 +34,8 @@
     ~/.vim: vim/
     ~/.tmux.conf: tmux/tmux.conf
     ~/.gitconfig: gitconfig
+    ~/.zshrc: zsh/zshrc
+    ~/.zshenv: zsh/zshenv
 
 - shell:
   - 
