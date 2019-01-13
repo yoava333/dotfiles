@@ -62,6 +62,7 @@ set background=dark
 
 " relative line numbers
 set relativenumber
+set number
 
 " white space settings
 set tabstop=4

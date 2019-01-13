@@ -3,3 +3,5 @@
 	name = Yoav Alon
 [alias]
 	lol = log --oneline --graph --decorate
+[core]
+	editor = vim
